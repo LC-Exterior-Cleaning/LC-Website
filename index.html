@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>LC Exterior Cleaning | Power Washing & Bin Cleaning Fort Myers</title>
-<meta name="description" content="Professional power washing and bin cleaning services in Fort Myers, FL. Reliable exterior cleaning solutions at competitive prices." />
+<title>Home | LC Exterior Cleaning Fort Myers</title>
+<meta name="description" content="Professional power washing and bin cleaning in Fort Myers. Reliable exterior cleaning solutions at competitive prices." />
 <meta name="keywords" content="power washing Fort Myers, bin cleaning near me, driveway pressure washing Fort Myers" />
 <meta name="author" content="LC Exterior Cleaning" />
 <style>
-  /* ========== RESET & BASE ========== */
+  /* RESET & BASE */
   *, *::before, *::after {
     margin: 0; padding: 0; box-sizing: border-box;
   }
@@ -37,19 +37,24 @@
   button:focus {
     outline: 3px solid #10775c;
   }
-  /* ========== NAVBAR ========== */
+
+  /* NAVBAR */
   nav {
     position: sticky;
     top: 0;
     background: #0b3d2e;
     display: flex;
-    justify-content: center;
-    gap: 30px;
-    padding: 1rem 0;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
     z-index: 9999;
     box-shadow: 0 2px 6px rgba(0,0,0,0.3);
   }
-  nav a {
+  .nav-links {
+    display: flex;
+    gap: 30px;
+  }
+  .nav-links a {
     color: #e0f7e9;
     font-size: 1.1rem;
     padding: 0.4rem 1rem;
@@ -57,7 +62,7 @@
     transition: background 0.3s ease;
     position: relative;
   }
-  nav a::after {
+  .nav-links a::after {
     content: "";
     position: absolute;
     bottom: 4px;
@@ -67,149 +72,181 @@
     background: #18a162;
     transition: width 0.3s ease, left 0.3s ease;
   }
-  nav a:hover::after,
-  nav a.active::after {
+  .nav-links a:hover::after,
+  .nav-links a.active::after {
     width: 80%;
     left: 10%;
   }
-  nav a:hover,
-  nav a.active {
+  .nav-links a:hover,
+  .nav-links a.active {
     background: #10775c;
     color: white;
   }
-  /* ========== CONTAINER ========== */
-  .container {
-    max-width: 1140px;
-    margin: 2rem auto;
-    padding: 0 15px;
+  /* Hamburger button */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
   }
-  /* ========== HERO ========== */
+  .hamburger div {
+    width: 25px;
+    height: 3px;
+    background: #e0f7e9;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+  }
+
+  /* Mobile Styles */
+  @media (max-width: 768px) {
+    .nav-links {
+      position: fixed;
+      top: 60px;
+      right: -100%;
+      background: #0b3d2e;
+      height: 100vh;
+      width: 200px;
+      flex-direction: column;
+      padding-top: 2rem;
+      gap: 1.5rem;
+      transition: right 0.3s ease;
+      box-shadow: -2px 0 8px rgba(0,0,0,0.4);
+    }
+    .nav-links.open {
+      right: 0;
+    }
+    .hamburger {
+      display: flex;
+    }
+  }
+
+  /* HERO SECTION */
   .hero {
     position: relative;
-    text-align: center;
-    color: white;
-    margin-bottom: 3rem;
+    width: 100%;
+    height: 75vh;
+    max-height: 600px;
     overflow: hidden;
+    background: #0b3d2e;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .hero img {
-    width: 100%;
-    max-height: 450px;
-    object-fit: cover;
-    filter: brightness(0.45);
-    border-radius: 12px;
-    animation: fadeIn 1.5s ease forwards;
-  }
-  .hero-text {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    max-width: 90%;
-    animation: slideUpFade 1.2s ease forwards;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.35;
+    filter: brightness(0.6);
+    transition: opacity 1.5s ease-in-out;
+  }
+  .hero-content {
+    position: relative;
+    max-width: 900px;
+    padding: 1rem 2rem;
+    text-align: center;
+    z-index: 5;
   }
   .hero h1 {
     font-size: 3.5rem;
-    margin-bottom: 0.5rem;
-    text-shadow: 2px 2px 8px #000;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+    opacity: 1;
+    transform: none;
   }
   .hero p {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-    text-shadow: 1.5px 1.5px 5px #000;
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.5);
   }
-  .hero button {
-    background: #18a162;
+  .btn-primary {
+    background-color: #18a162;
     color: white;
-    padding: 1rem 3rem;
-    font-size: 1.25rem;
-    box-shadow: 0 8px 18px rgba(24,161,98,0.6);
-    border-radius: 10px;
-    transform: scale(0.8);
-    opacity: 0;
-    animation: scaleUpFade 1.5s 1.5s ease forwards;
-    border: 2px solid transparent;
+    padding: 1.1rem 2.8rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(24,161,98,0.7);
+    transition: background 0.4s ease, box-shadow 0.4s ease;
+    text-decoration: none;
+    display: inline-block;
   }
-  .hero button:hover {
-    background: #0f6a42;
-    box-shadow: 0 10px 24px rgba(15,106,66,0.8);
-    border-color: #b9f7c7;
+  .btn-primary:hover,
+  .btn-primary:focus {
+    background-color: #0f6a42;
+    box-shadow: 0 10px 28px rgba(15,106,66,0.9);
   }
-  /* ========== SECTION TITLES ========== */
-  h2.section-title {
-    text-align: center;
-    font-size: 2.8rem;
-    margin-bottom: 1.5rem;
-    color: #0b3d2e;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: slideUpFade 1s ease forwards;
-    animation-delay: 1.8s;
-  }
-  /* ========== SERVICES GRID ========== */
-  .services-grid {
-    display: grid;
-    gap: 2.5rem;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    opacity: 0;
-    transform: translateY(20px);
-    animation: slideUpFade 1s ease forwards;
-    animation-delay: 2.2s;
+
+  /* SERVICES PREVIEW */
+  .services-preview {
+    max-width: 1100px;
+    margin: 4rem auto;
+    padding: 0 1rem;
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
   }
   .service-card {
     background: white;
-    border-radius: 15px;
-    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
-    padding: 1.8rem 1.5rem;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    cursor: default;
-    will-change: transform;
-  }
-  .service-card:hover, .service-card:focus-within {
-    transform: translateY(-12px);
-    box-shadow: 0 10px 28px rgba(0,0,0,0.22);
+    border-radius: 18px;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.1);
+    overflow: hidden;
+    width: 320px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
   }
+  .service-card:hover,
+  .service-card:focus-within {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  }
   .service-card img {
-    border-radius: 12px;
-    max-height: 190px;
+    width: 100%;
+    height: 200px;
     object-fit: cover;
-    margin-bottom: 1.2rem;
+  }
+  .service-card-content {
+    padding: 1.5rem 1.3rem 2rem 1.3rem;
+    color: #0b3d2e;
   }
   .service-card h3 {
-    color: #10775c;
     margin-bottom: 0.8rem;
-    font-size: 1.8rem;
-    font-weight: 700;
+    font-size: 1.5rem;
   }
   .service-card p {
-    flex-grow: 1;
-    color: #444;
-    margin-bottom: 1.3rem;
-    font-size: 1.1rem;
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
+    font-weight: 600;
   }
   .service-card .price {
+    font-size: 1.2rem;
     font-weight: 700;
     color: #18a162;
-    font-size: 1.2rem;
-    margin-bottom: 1.3rem;
+    margin-bottom: 1.4rem;
   }
   .service-card button {
-    background: #0b3d2e;
+    background: #18a162;
     color: white;
-    padding: 0.9rem 1.9rem;
-    font-weight: 700;
-    border-radius: 10px;
+    padding: 0.8rem 1.9rem;
     font-size: 1.1rem;
-    box-shadow: 0 6px 16px rgba(11,61,46,0.6);
-    transition: background 0.4s ease, box-shadow 0.4s ease;
+    font-weight: 700;
+    border-radius: 12px;
+    box-shadow: 0 8px 22px rgba(24,161,98,0.7);
+    transition: background 0.3s ease;
+    width: 100%;
   }
-  .service-card button:hover, .service-card button:focus {
-    background: #10775c;
-    box-shadow: 0 10px 24px rgba(16,119,92,0.9);
+  .service-card button:hover,
+  .service-card button:focus {
+    background: #0f6a42;
   }
-  /* ========== FOOTER ========== */
+
+  /* FOOTER */
   footer {
     text-align: center;
     padding: 1.8rem 1rem;
@@ -219,37 +256,28 @@
     font-size: 1rem;
     margin-top: 3rem;
   }
-  /* ========== UTILITY CLASSES ========== */
-  .text-center {
-    text-align: center;
-  }
-  /* ========== ANIMATIONS ========== */
-  @keyframes fadeIn {
-    to {opacity: 1;}
-  }
-  @keyframes slideUpFade {
-    to {
-      opacity: 1;
-      transform: translateY(0);
+
+  /* RESPONSIVE */
+  @media (max-width: 1024px) {
+    .services-preview {
+      flex-direction: column;
+      align-items: center;
+    }
+    .service-card {
+      width: 90%;
+      max-width: 400px;
     }
   }
-  @keyframes scaleUpFade {
-    to {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
-  /* ========== RESPONSIVE ========== */
-  @media (max-width: 700px) {
+  @media (max-width: 480px) {
     .hero h1 {
       font-size: 2.4rem;
     }
     .hero p {
       font-size: 1.1rem;
     }
-    nav {
-      gap: 15px;
-      padding: 0.7rem 0;
+    .btn-primary {
+      font-size: 1.1rem;
+      padding: 0.9rem 2rem;
     }
   }
 </style>
@@ -257,106 +285,78 @@
 <body>
 
 <nav aria-label="Primary navigation">
-  <a href="index.html" class="active" aria-current="page">Home</a>
-  <a href="services.html">Services</a>
-  <a href="gallery.html">Gallery</a>
-  <a href="contact.html">Contact</a>
+  <div class="logo" style="color:#e0f7e9; font-weight:700; font-size:1.4rem;">LC Exterior Cleaning</div>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html" class="active" aria-current="page">Home</a>
+    <a href="services.html">Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" role="button" tabindex="0">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
 </nav>
 
-<main>
-
-<section class="container hero" aria-label="Hero banner with before and after image">
-  <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80" alt="Driveway before and after power washing" />
-  <div class="hero-text">
-    <h1>Professional Power Washing &amp; Bin Cleaning in Fort Myers</h1>
+<section class="hero" aria-label="Hero section with before and after cleaning image">
+  <img src="https://images.unsplash.com/photo-1590080877772-09f3a6bb5d4b?auto=format&fit=crop&w=1470&q=80" alt="Before and after driveway power washing" />
+  <div class="hero-content">
+    <h1>Professional Power Washing & Bin Cleaning in Fort Myers</h1>
     <p>Reliable exterior cleaning solutions at competitive prices.</p>
-    <button onclick="location.href='contact.html'">Get a Free Quote</button>
+    <a href="contact.html" class="btn-primary" role="button">Get a Free Quote</a>
   </div>
 </section>
 
-<section class="container" aria-label="Introduction to LC Exterior Cleaning services">
-  <h2 class="section-title">Welcome to LC Exterior Cleaning</h2>
-  <p style="max-width:700px; margin: 0 auto 2.5rem; font-size:1.15rem; color:#22593f; text-align:center;">
-    At LC Exterior Cleaning, we specialize in professional power washing and bin cleaning services in Fort Myers, FL. Our expert team uses top-grade equipment to remove stubborn dirt, grime, algae, and unpleasant odors — leaving your home or business exterior spotless and fresh.
-  </p>
-</section>
-
-<section class="container" aria-label="Service highlights">
-  <h2 class="section-title">Our Key Services</h2>
-  <div class="services-grid" aria-live="polite">
-    <article class="service-card" tabindex="0" aria-label="Bin Cleaning Service">
-      <img src="https://images.unsplash.com/photo-1590080877777-cf0e8b35e1a7?auto=format&fit=crop&w=600&q=60" alt="Clean trash bin after cleaning" />
-      <h3>Bin Cleaning</h3>
-      <p>Sanitized, deodorized, and spotless. Keep your bins fresh and hygienic year-round.</p>
+<section class="services-preview" aria-label="Preview of main services">
+  <article class="service-card" tabindex="0" aria-labelledby="service-bin-cleaning">
+    <img src="https://images.unsplash.com/photo-1582957794530-14d9b39a6e72?auto=format&fit=crop&w=800&q=80" alt="Clean residential garbage bin" />
+    <div class="service-card-content">
+      <h3 id="service-bin-cleaning">Bin Cleaning</h3>
+      <p>Sanitized, deodorized, and spotless bin cleaning to keep your home or business fresh and clean.</p>
       <p class="price">$25 per bin</p>
-      <button onclick="location.href='contact.html'">Request a Quote</button>
-    </article>
-    <article class="service-card" tabindex="0" aria-label="Driveway Power Washing Service">
-      <img src="https://images.unsplash.com/photo-1598377613588-96b168c78d9d?auto=format&fit=crop&w=600&q=60" alt="Driveway power washing before and after" />
-      <h3>Driveway Power Washing</h3>
-      <p>High-pressure cleaning removes dirt, oil stains, algae, and grime. Pricing varies by driveway size.</p>
-      <p class="price">Free quotes available</p>
-      <button onclick="location.href='contact.html'">Book Now</button>
-    </article>
-  </div>
-</section>
+      <button onclick="window.location.href='contact.html'">Request a Quote</button>
+    </div>
+  </article>
 
-<section class="container" aria-label="Why choose LC Exterior Cleaning">
-  <h2 class="section-title">Why Choose Us?</h2>
-  <ul style="max-width: 720px; margin: 0 auto 3rem; font-size: 1.15rem; color:#22593f; list-style-type: none; padding-left: 1rem;">
-    <li style="margin-bottom: 1rem; position: relative; padding-left: 25px;">
-      <span style="color:#18a162; font-weight: 900; position: absolute; left: 0; top: 0;">✔</span>
-      Experienced professionals with state-of-the-art equipment.
-    </li>
-    <li style="margin-bottom: 1rem; position: relative; padding-left: 25px;">
-      <span style="color:#18a162; font-weight: 900; position: absolute; left: 0; top: 0;">✔</span>
-      Eco-friendly cleaning products safe for your family and pets.
-    </li>
-    <li style="margin-bottom: 1rem; position: relative; padding-left: 25px;">
-      <span style="color:#18a162; font-weight: 900; position: absolute; left: 0; top: 0;">✔</span>
-      Reliable, timely, and affordable service with satisfaction guarantee.
-    </li>
-    <li style="margin-bottom: 1rem; position: relative; padding-left: 25px;">
-      <span style="color:#18a162; font-weight: 900; position: absolute; left: 0; top: 0;">✔</span>
-      Customized solutions tailored to your specific needs.
-    </li>
-  </ul>
+  <article class="service-card" tabindex="0" aria-labelledby="service-driveway-washing">
+    <img src="https://images.unsplash.com/photo-1518831959701-f12a5cc07263?auto=format&fit=crop&w=800&q=80" alt="Driveway being power washed" />
+    <div class="service-card-content">
+      <h3 id="service-driveway-washing">Driveway Power Washing</h3>
+      <p>High-pressure cleaning removes dirt, oil stains, algae, and grime from your driveway. Pricing based on size.</p>
+      <p class="price">Custom pricing</p>
+      <button onclick="window.location.href='contact.html'">Request a Quote</button>
+    </div>
+  </article>
 </section>
-
-<section class="container" aria-label="Customer testimonials">
-  <h2 class="section-title">What Our Customers Say</h2>
-  <div style="max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 2rem;">
-    <blockquote style="background: white; padding: 1.5rem 2rem; border-radius: 15px; box-shadow: 0 4px 14px rgba(0,0,0,0.1); font-style: italic; color: #10775c; position: relative;">
-      "LC Exterior Cleaning did an amazing job on our driveway and trash bins! Highly recommend their professional and friendly service."
-      <footer style="font-weight: 700; margin-top: 0.8rem; color: #0b3d2e;">— Sarah M., Fort Myers</footer>
-    </blockquote>
-    <blockquote style="background: white; padding: 1.5rem 2rem; border-radius: 15px; box-shadow: 0 4px 14px rgba(0,0,0,0.1); font-style: italic; color: #10775c; position: relative;">
-      "The team was punctual and thorough. My bins smell fresh and my driveway looks brand new. Excellent value for the price!"
-      <footer style="font-weight: 700; margin-top: 0.8rem; color: #0b3d2e;">— Mark D., Fort Myers</footer>
-    </blockquote>
-  </div>
-</section>
-
-<section class="container text-center" aria-label="Call to action section">
-  <h2 class="section-title">Ready to Refresh Your Property?</h2>
-  <p style="font-size: 1.3rem; max-width: 650px; margin: 0 auto 1.8rem; color: #22593f;">
-    Contact LC Exterior Cleaning today for a free, no-obligation quote or to book your service now!
-  </p>
-  <button onclick="location.href='contact.html'" style="padding: 1rem 3rem; font-size: 1.3rem; border-radius: 12px; background:#18a162; color:#fff; box-shadow: 0 8px 22px rgba(24,161,98,0.7); transition: background 0.4s ease;">Get a Free Quote</button>
-</section>
-
-</main>
 
 <footer>
   &copy; 2025 LC Exterior Cleaning. All rights reserved.
 </footer>
 
 <script>
-  // Navbar active link highlight based on current page
-  document.querySelectorAll('nav a').forEach(a => {
-    if (a.href === window.location.href || a.href === window.location.href + '/') {
-      a.classList.add('active');
+  // Hamburger toggle
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+
+  hamburger.addEventListener('click', () => {
+    const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
+    hamburger.setAttribute('aria-expanded', !expanded);
+    navLinks.classList.toggle('open');
+  });
+
+  hamburger.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      hamburger.click();
     }
+  });
+
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', false);
+    });
   });
 </script>
 

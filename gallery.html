@@ -4,11 +4,11 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Gallery | LC Exterior Cleaning Fort Myers</title>
-<meta name="description" content="View before and after photos of bin cleaning and driveway power washing services by LC Exterior Cleaning in Fort Myers." />
-<meta name="keywords" content="bin cleaning before after, driveway cleaning before after, exterior cleaning gallery" />
+<meta name="description" content="Before and after gallery of exterior cleaning work including bin cleaning and driveway power washing in Fort Myers." />
+<meta name="keywords" content="exterior cleaning gallery Fort Myers, bin cleaning before after, driveway power washing before after" />
 <meta name="author" content="LC Exterior Cleaning" />
 <style>
-  /* ========== RESET & BASE ========== */
+  /* Reset & base styles */
   *, *::before, *::after {
     margin: 0; padding: 0; box-sizing: border-box;
   }
@@ -27,29 +27,23 @@
   a:hover, a:focus {
     text-decoration: underline;
   }
-  button {
-    cursor: pointer;
-    border: none;
-    border-radius: 6px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-  }
-  button:focus {
-    outline: 3px solid #10775c;
-  }
-  /* ========== NAVBAR ========== */
+  /* Navbar same as others */
   nav {
     position: sticky;
     top: 0;
     background: #0b3d2e;
     display: flex;
-    justify-content: center;
-    gap: 30px;
-    padding: 1rem 0;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
     z-index: 9999;
     box-shadow: 0 2px 6px rgba(0,0,0,0.3);
   }
-  nav a {
+  .nav-links {
+    display: flex;
+    gap: 30px;
+  }
+  .nav-links a {
     color: #e0f7e9;
     font-size: 1.1rem;
     padding: 0.4rem 1rem;
@@ -57,7 +51,7 @@
     transition: background 0.3s ease;
     position: relative;
   }
-  nav a::after {
+  .nav-links a::after {
     content: "";
     position: absolute;
     bottom: 4px;
@@ -67,91 +61,95 @@
     background: #18a162;
     transition: width 0.3s ease, left 0.3s ease;
   }
-  nav a:hover::after,
-  nav a.active::after {
+  .nav-links a:hover::after,
+  .nav-links a.active::after {
     width: 80%;
     left: 10%;
   }
-  nav a:hover,
-  nav a.active {
+  .nav-links a:hover,
+  .nav-links a.active {
     background: #10775c;
     color: white;
   }
-  /* ========== CONTAINER ========== */
-  .container {
-    max-width: 1140px;
-    margin: 2rem auto 4rem auto;
-    padding: 0 15px;
+  /* Hamburger button */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
   }
-  /* ========== PAGE TITLE ========== */
+  .hamburger div {
+    width: 25px;
+    height: 3px;
+    background: #e0f7e9;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+  }
+  @media (max-width: 768px) {
+    .nav-links {
+      position: fixed;
+      top: 60px;
+      right: -100%;
+      background: #0b3d2e;
+      height: 100vh;
+      width: 200px;
+      flex-direction: column;
+      padding-top: 2rem;
+      gap: 1.5rem;
+      transition: right 0.3s ease;
+      box-shadow: -2px 0 8px rgba(0,0,0,0.4);
+    }
+    .nav-links.open {
+      right: 0;
+    }
+    .hamburger {
+      display: flex;
+    }
+  }
+
+  /* GALLERY */
+  main {
+    max-width: 1100px;
+    margin: 3rem auto 5rem auto;
+    padding: 0 1rem;
+  }
   h1.page-title {
     font-size: 3rem;
     color: #0b3d2e;
     text-align: center;
     margin-bottom: 2.5rem;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: slideUpFade 1s ease forwards;
   }
-  /* ========== SLIDER ========== */
-  .slider-wrapper {
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
+    gap: 2rem;
+  }
+  .gallery-item {
     position: relative;
-    max-width: 720px;
-    margin: 0 auto 3rem auto;
-    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-    animation: slideUpFade 1s ease forwards;
-    animation-delay: 0.5s;
-    opacity: 0;
-    transform: translateY(20px);
+    border-radius: 18px;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.1);
+    background: white;
   }
-  .slider-images {
-    display: flex;
-    transition: transform 0.6s ease-in-out;
-    will-change: transform;
+  .gallery-item img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+    display: block;
   }
-  .slider-images img {
-    width: 720px;
-    max-width: 100%;
-    user-select: none;
+  .gallery-item:hover img,
+  .gallery-item:focus-within img {
+    transform: scale(1.1);
   }
-  .slider-caption {
-    background: rgba(11,61,46,0.8);
-    color: #e0f7e9;
-    padding: 1rem 1.5rem;
-    font-size: 1.15rem;
+  .caption {
+    padding: 1rem 1rem 1.4rem 1rem;
+    color: #0b3d2e;
     font-weight: 600;
-    text-align: center;
-    border-bottom-left-radius: 16px;
-    border-bottom-right-radius: 16px;
+    font-size: 1rem;
   }
-  /* ========== CONTROLS ========== */
-  .slider-controls {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 4rem;
-  }
-  .control-btn {
-    background: #10775c;
-    border-radius: 50%;
-    width: 48px;
-    height: 48px;
-    border: none;
-    color: white;
-    font-size: 1.8rem;
-    font-weight: 700;
-    box-shadow: 0 4px 16px rgba(16,119,92,0.7);
-    transition: background 0.3s ease, transform 0.3s ease;
-  }
-  .control-btn:hover,
-  .control-btn:focus {
-    background: #18a162;
-    outline: none;
-    transform: scale(1.15);
-  }
-  /* ========== FOOTER ========== */
+
+  /* FOOTER */
   footer {
     text-align: center;
     padding: 1.8rem 1rem;
@@ -161,17 +159,11 @@
     font-size: 1rem;
     margin-top: 3rem;
   }
-  /* ========== ANIMATIONS ========== */
-  @keyframes slideUpFade {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  /* ========== RESPONSIVE ========== */
-  @media (max-width: 750px) {
-    .slider-images img {
-      width: 100%;
+
+  /* RESPONSIVE */
+  @media (max-width: 480px) {
+    h1.page-title {
+      font-size: 2.2rem;
     }
   }
 </style>
@@ -179,40 +171,45 @@
 <body>
 
 <nav aria-label="Primary navigation">
-  <a href="index.html">Home</a>
-  <a href="services.html">Services</a>
-  <a href="gallery.html" class="active" aria-current="page">Gallery</a>
-  <a href="contact.html">Contact</a>
+  <div class="logo" style="color:#e0f7e9; font-weight:700; font-size:1.4rem;">LC Exterior Cleaning</div>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="gallery.html" class="active" aria-current="page">Gallery</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" role="button" tabindex="0">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
 </nav>
 
-<main class="container" role="main">
+<main role="main">
+  <h1 class="page-title">Before &amp; After Gallery</h1>
+  <section class="gallery" aria-label="Before and after images">
 
-<h1 class="page-title">Before & After Gallery</h1>
+    <article class="gallery-item" tabindex="0">
+      <img src="https://images.unsplash.com/photo-1582957794530-14d9b39a6e72?auto=format&fit=crop&w=800&q=80" alt="Dirty residential garbage bin before cleaning" />
+      <div class="caption">Dirty garbage bin before cleaning</div>
+    </article>
 
-<div class="slider-wrapper" aria-live="polite" aria-label="Before and after images slider for bin cleaning">
-  <div class="slider-images" id="sliderBin">
-    <img src="https://images.unsplash.com/photo-1603052875345-476ac9645e67?auto=format&fit=crop&w=720&q=70" alt="Dirty trash bin before cleaning" />
-    <img src="https://images.unsplash.com/photo-1590080877777-cf0e8b35e1a7?auto=format&fit=crop&w=720&q=70" alt="Clean trash bin after cleaning" />
-  </div>
-  <div class="slider-caption" id="captionBin">Bin Cleaning: Before and After</div>
-</div>
-<div class="slider-controls">
-  <button class="control-btn" aria-label="Previous bin cleaning image" id="prevBin">&#8592;</button>
-  <button class="control-btn" aria-label="Next bin cleaning image" id="nextBin">&#8594;</button>
-</div>
+    <article class="gallery-item" tabindex="0">
+      <img src="https://images.unsplash.com/photo-1590080877772-09f3a6bb5d4b?auto=format&fit=crop&w=800&q=80" alt="Spotless garbage bin after cleaning" />
+      <div class="caption">Spotless garbage bin after cleaning</div>
+    </article>
 
-<div class="slider-wrapper" aria-live="polite" aria-label="Before and after images slider for driveway power washing">
-  <div class="slider-images" id="sliderDriveway">
-    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=720&q=70" alt="Driveway before power washing" />
-    <img src="https://images.unsplash.com/photo-1598377613588-96b168c78d9d?auto=format&fit=crop&w=720&q=70" alt="Driveway after power washing" />
-  </div>
-  <div class="slider-caption" id="captionDriveway">Driveway Power Washing: Before and After</div>
-</div>
-<div class="slider-controls">
-  <button class="control-btn" aria-label="Previous driveway cleaning image" id="prevDriveway">&#8592;</button>
-  <button class="control-btn" aria-label="Next driveway cleaning image" id="nextDriveway">&#8594;</button>
-</div>
+    <article class="gallery-item" tabindex="0">
+      <img src="https://images.unsplash.com/photo-1518831959701-f12a5cc07263?auto=format&fit=crop&w=800&q=80" alt="Driveway before power washing" />
+      <div class="caption">Driveway before power washing</div>
+    </article>
 
+    <article class="gallery-item" tabindex="0">
+      <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=800&q=80" alt="Clean driveway after power washing" />
+      <div class="caption">Clean driveway after power washing</div>
+    </article>
+
+  </section>
 </main>
 
 <footer>
@@ -220,35 +217,29 @@
 </footer>
 
 <script>
-  // Highlight active nav link
-  document.querySelectorAll('nav a').forEach(a => {
-    if (a.href === window.location.href || a.href === window.location.href + '/') {
-      a.classList.add('active');
+  // Hamburger toggle
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+
+  hamburger.addEventListener('click', () => {
+    const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
+    hamburger.setAttribute('aria-expanded', !expanded);
+    navLinks.classList.toggle('open');
+  });
+
+  hamburger.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      hamburger.click();
     }
   });
 
-  // Slider logic
-  function setupSlider(sliderId, prevBtnId, nextBtnId) {
-    const slider = document.getElementById(sliderId);
-    const prevBtn = document.getElementById(prevBtnId);
-    const nextBtn = document.getElementById(nextBtnId);
-    let index = 0;
-    const total = slider.children.length;
-
-    function update() {
-      slider.style.transform = `translateX(-${index * 100}%)`;
-    }
-    prevBtn.addEventListener('click', () => {
-      index = (index - 1 + total) % total;
-      update();
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', false);
     });
-    nextBtn.addEventListener('click', () => {
-      index = (index + 1) % total;
-      update();
-    });
-  }
-  setupSlider('sliderBin', 'prevBin', 'nextBin');
-  setupSlider('sliderDriveway', 'prevDriveway', 'nextDriveway');
+  });
 </script>
 
 </body>
