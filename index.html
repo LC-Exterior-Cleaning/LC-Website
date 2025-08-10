@@ -1,0 +1,622 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>LC Exterior Cleaning — Professional Power Washing & Bin Cleaning in {{CITY}}</title>
+  <meta name="description" content="LC Exterior Cleaning offers professional power washing and bin cleaning in {{CITY}}. Bin cleaning $25 per bin. Free driveway quotes. Fast, professional, residential & commercial." />
+  <meta name="keywords" content="power washing {{CITY}}, bin cleaning near me, driveway pressure washing {{CITY}}, exterior cleaning {{CITY}}" />
+  <meta name="theme-color" content="#0f766e" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="LC Exterior Cleaning — Power Washing & Bin Cleaning in {{CITY}}" />
+  <meta property="og:description" content="Reliable exterior cleaning services for homes and businesses. Bin cleaning $25 per bin. Free driveway quotes." />
+  <meta property="og:image" content="/images/og-image.jpg" />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"LC Exterior Cleaning",
+    "image":["https://yourdomain.com/images/og-image.jpg"],
+    "telephone":"+1-239-313-7337",
+    "email":"lc.lawncarecompany@gmail.com",
+    "address":{
+      "@type":"PostalAddress",
+      "addressLocality":"{{CITY}}"
+    },
+    "description":"Professional power washing and bin cleaning services for residential and commercial customers in {{CITY}}.",
+    "openingHours":"Mo-Sa 09:00-18:00",
+    "areaServed":"{{CITY}}"
+  }
+  </script>
+
+  <!-- Styles: long, detailed, modern, animations, accessibility -->
+  <style>
+    /* --------- Root & Reset --------- */
+    :root{
+      --bg:#ffffff;
+      --muted:#6b7280;
+      --brand-1:#0f766e; /* teal */
+      --brand-2:#0369a1; /* blue */
+      --accent:#10b981;
+      --glass: rgba(255,255,255,0.66);
+      --card:#f8fafc;
+      --maxw:1200px;
+      --radius:16px;
+      --shadow: 0 10px 30px rgba(2,6,23,0.08);
+      --ease:cubic-bezier(.2,.9,.3,1);
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;background:linear-gradient(180deg,#f7fdfa 0,#ffffff 100%);color:#071024;line-height:1.5;-webkit-font-smoothing:antialiased}
+    img{max-width:100%;display:block}
+    a{color:inherit}
+
+    .container{max-width:var(--maxw);margin:0 auto;padding:28px}
+
+    /* --------- Header / Nav (sticky) --------- */
+    header{position:sticky;top:0;z-index:1200;background:linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.7));backdrop-filter:blur(6px);border-bottom:1px solid rgba(2,6,23,0.04)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:56px;height:56px;border-radius:12px;display:flex;align-items:center;justify-content:center;color:white;font-weight:800;background:linear-gradient(135deg,var(--brand-2),var(--brand-1));box-shadow:var(--shadow)}
+    .brand h1{font-size:18px;margin:0}
+    nav ul{display:flex;gap:12px;list-style:none;margin:0;padding:0}
+    nav a{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:10px;font-weight:700;text-decoration:none}
+    nav a:hover{background:rgba(2,6,23,0.04)}
+
+    /* Fancy animated CTA */
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:10px 16px;border-radius:12px;font-weight:800;border:0;cursor:pointer;transition:transform .18s var(--ease),box-shadow .18s var(--ease)}
+    .btn:active{transform:translateY(1px)}
+    .btn-primary{background:linear-gradient(90deg,var(--brand-1),var(--brand-2));color:white;box-shadow:0 12px 30px rgba(3,105,161,0.14)}
+    .btn-ghost{background:transparent;border:1px solid rgba(3,105,161,0.06);color:var(--brand-2)}
+
+    /* Mobile menu */
+    .mobile-toggle{display:none;background:transparent;border:0;font-size:22px}
+
+    @media(max-width:920px){nav ul{display:none}.mobile-toggle{display:block}}
+
+    /* --------- Hero --------- */
+    .hero{display:grid;grid-template-columns:1fr 460px;gap:28px;align-items:center;padding:56px 0}
+    .kicker{display:inline-block;background:linear-gradient(90deg,var(--accent),var(--brand-2));color:white;padding:6px 10px;border-radius:999px;font-weight:800;font-size:13px}
+    .hero h2{font-size:34px;margin:12px 0 12px}
+    .hero p{color:var(--muted);margin:0 0 18px}
+    .hero .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+
+    /* Hero card (right) with animated border */
+    .hero-card{background:linear-gradient(180deg,rgba(255,255,255,0.9),var(--card));border-radius:18px;padding:14px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+    .glow{position:absolute;right:-40px;top:-40px;width:220px;height:220px;background:radial-gradient(circle at 30% 30%, rgba(3,105,161,0.12), transparent 40%);filter:blur(20px);pointer-events:none}
+
+    /* Before/After slider styles */
+    .ba-wrap{position:relative;border-radius:12px;overflow:hidden;border:1px solid rgba(2,6,23,0.04)}
+    .ba-wrap img{width:100%;height:320px;object-fit:cover;display:block}
+    .ba-slider{position:absolute;left:0;top:0;height:100%;width:50%;overflow:hidden}
+    .handle{position:absolute;left:calc(50% - 18px);top:50%;transform:translateY(-50%);background:white;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px rgba(2,6,23,0.14);border:4px solid rgba(255,255,255,0.8)}
+    .handle svg{width:14px;height:14px;opacity:0.7}
+
+    /* --------- Services / Cards / Animations --------- */
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:20px}
+    .service-card{background:white;border-radius:14px;padding:16px;box-shadow:0 8px 30px rgba(2,6,23,0.06);transform:translateY(0);transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+    .service-card:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(2,6,23,0.12)}
+    .service-card h3{margin:8px 0}
+    .service-icon{width:64px;height:64px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:800;background:linear-gradient(135deg,var(--brand-2),var(--brand-1));color:white}
+
+    /* Price ribbon */
+    .ribbon{display:inline-block;background:linear-gradient(90deg,var(--brand-1),var(--brand-2));color:white;padding:6px 10px;border-radius:999px;font-weight:800}
+
+    /* Accordion */
+    .accordion{border-radius:12px;overflow:hidden;border:1px solid rgba(2,6,23,0.04)}
+    .acc-item{border-bottom:1px solid rgba(2,6,23,0.04)}
+    .acc-btn{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:white;border:0;width:100%;text-align:left;font-weight:700}
+    .acc-panel{padding:12px 16px;background:var(--card);display:none}
+
+    /* --------- Gallery / Carousel / Testimonials --------- */
+    .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}
+    .gallery-card{border-radius:12px;overflow:hidden;border:1px solid rgba(2,6,23,0.04);background:#f7fdfb}
+    .gallery-card img{height:160px;object-fit:cover}
+
+    .testimonials{margin-top:20px;display:grid;grid-template-columns:1fr 320px;gap:16px;align-items:start}
+    .test-slider{background:white;border-radius:12px;padding:18px;box-shadow:var(--shadow)}
+    .testimonial{display:none}
+    .testimonial.active{display:block}
+
+    /* --------- Contact / Form --------- */
+    .contact-wrap{display:grid;grid-template-columns:2fr 1fr;gap:18px;margin-top:16px}
+    form{background:white;border-radius:12px;padding:18px;box-shadow:var(--shadow)}
+    input,textarea,select{width:100%;padding:12px;border-radius:10px;border:1px solid #e6eef0;font-size:14px}
+    textarea{min-height:140px}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+    /* Map */
+    .map{height:260px;border-radius:12px;overflow:hidden;border:1px solid #e6eef0}
+
+    /* --------- Footer --------- */
+    footer{margin-top:36px;padding:28px 0;border-top:1px solid rgba(2,6,23,0.04)}
+    .foot-grid{display:flex;justify-content:space-between;gap:12px;align-items:center}
+
+    /* --------- Utilities / Responsive --------- */
+    @media(max-width:1100px){.services-grid{grid-template-columns:repeat(2,1fr)}.gallery-grid{grid-template-columns:repeat(3,1fr)}.hero{grid-template-columns:1fr 360px}}
+    @media(max-width:820px){.hero{grid-template-columns:1fr}.services-grid{grid-template-columns:1fr}.gallery-grid{grid-template-columns:repeat(2,1fr)}.contact-wrap{grid-template-columns:1fr}.testimonials{grid-template-columns:1fr 1fr}.brand h1{display:none}}
+    @media(max-width:480px){.gallery-grid{grid-template-columns:1fr}.nav{padding:8px}.logo{width:48px;height:48px}}
+
+    /* --------- Decorative Animations --------- */
+    @keyframes floaty{0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)}}
+    .float{animation:floaty 6s var(--ease) infinite}
+
+    @keyframes pop{0%{transform:scale(.96);opacity:0}60%{transform:scale(1.02);opacity:1}100%{transform:scale(1);opacity:1}}
+    .pop{animation:pop .6s var(--ease) both}
+
+    /* Accessibility focus */
+    :focus{outline:3px solid rgba(3,105,161,0.12);outline-offset:3px}
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">LC</div>
+        <div>
+          <h1>LC Exterior Cleaning</h1>
+          <div style="color:var(--muted);font-size:13px">Power Washing & Bin Cleaning · {{CITY}}</div>
+        </div>
+      </div>
+
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div style="display:flex;align-items:center;gap:10px">
+        <a class="btn btn-ghost" href="tel:+12393137337" aria-label="Call LC Exterior Cleaning">📞 (239) 313-7337</a>
+        <button class="btn btn-primary" id="quoteBtn">Get a Free Quote</button>
+        <button class="mobile-toggle" id="mobileToggle" aria-expanded="false">☰</button>
+      </div>
+    </div>
+    <!-- MOBILE MENU -->
+    <div id="mobileMenu" style="display:none;background:var(--glass);padding:12px;backdrop-filter:blur(6px)">
+      <div class="container" style="display:flex;flex-direction:column;gap:8px">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#contact">Contact</a>
+        <a href="tel:+12393137337">Call: (239) 313-7337</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main id="home" class="container">
+    <!-- HERO -->
+    <section class="hero" aria-label="Hero section">
+      <div>
+        <span class="kicker pop">Locally Owned · Licensed & Insured</span>
+        <h2 class="pop">Professional Power Washing & Bin Cleaning in {{CITY}}</h2>
+        <p class="pop">We restore driveways, walkways, and trash bins to like-new condition. Fast, professional, and reliable exterior cleaning for homes and businesses.</p>
+
+        <div class="hero-actions">
+          <button class="btn btn-primary pop" id="heroQuote">Get a Free Quote</button>
+          <a class="btn btn-ghost pop" href="mailto:lc.lawncarecompany@gmail.com">Email Us</a>
+          <a class="btn" href="tel:+12393137337">Call (239) 313-7337</a>
+        </div>
+
+        <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap">
+          <div class="hero-card pop" style="min-width:220px">
+            <div style="font-size:13px;color:var(--muted)">Bin Cleaning</div>
+            <div style="font-weight:900;font-size:20px;margin-top:6px">$25<span style="font-size:12px;font-weight:700;color:var(--muted)"> / per bin</span></div>
+            <div style="margin-top:8px;color:var(--muted);font-size:13px">Sanitized, deodorized & spotless — perfect for residential and commercial service.</div>
+          </div>
+
+          <div class="hero-card pop" style="min-width:220px">
+            <div style="font-size:13px;color:var(--muted)">Driveway Power Washing</div>
+            <div style="font-weight:900;font-size:20px;margin-top:6px">Custom Pricing</div>
+            <div style="margin-top:8px;color:var(--muted);font-size:13px">Free on-site or photo quote. Oil stain removal, algae & mildew cleaning.</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right column: before/after slider -->
+      <aside class="hero-card" aria-hidden="false">
+        <div class="glow"></div>
+        <div class="ba-wrap" id="baWrap">
+          <img src="/images/driveway-after.jpg" alt="Driveway after pressure washing {{CITY}}" onerror="this.style.opacity=0.7">
+          <div class="ba-slider" id="baSlider">
+            <img src="/images/driveway-before.jpg" alt="Driveway before pressure washing {{CITY}}">
+          </div>
+          <div class="handle" id="baHandle" title="Drag to reveal before/after" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 12h10" stroke="#0f172a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+        <div style="display:flex;justify-content:space-between;margin-top:10px;color:var(--muted);font-size:13px">
+          <div>Before</div><div>After</div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" style="margin-top:40px">
+      <h3>Our Services</h3>
+      <p class="small">Comprehensive exterior cleaning — residential and commercial. Transparent pricing and dependable service.</p>
+
+      <div class="services-grid" style="margin-top:18px">
+        <!-- Bin Cleaning -->
+        <article class="service-card pop" aria-labelledby="svc-bin">
+          <div style="display:flex;gap:12px;align-items:center">
+            <div class="service-icon">🗑️</div>
+            <div>
+              <h3 id="svc-bin">Bin Cleaning</h3>
+              <p class="small">Deep clean, sanitize, and deodorize. Perfect for homes, apartments, and commercial properties.</p>
+              <div style="margin-top:10px;display:flex;gap:8px;align-items:center">
+                <div class="ribbon">$25 / bin</div>
+                <button class="btn btn-primary" onclick="openBooking('Bin Cleaning','$25 / bin')">Book Now</button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Driveway Power Washing -->
+        <article class="service-card pop" aria-labelledby="svc-driveway">
+          <div style="display:flex;gap:12px;align-items:center">
+            <div class="service-icon">🧰</div>
+            <div>
+              <h3 id="svc-driveway">Driveway Power Washing</h3>
+              <p class="small">High-pressure cleaning to remove dirt, oil, algae, and stains. Free quotes available; pricing depends on size and condition.</p>
+              <div style="margin-top:10px;display:flex;gap:8px;align-items:center">
+                <div class="ribbon">Free Quote</div>
+                <button class="btn btn-primary" onclick="openBooking('Driveway Power Washing','Free Quote')">Request Quote</button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Additional services (placeholder long) -->
+        <article class="service-card pop">
+          <div style="display:flex;gap:12px;align-items:center">
+            <div class="service-icon">🏢</div>
+            <div>
+              <h3>Commercial Exterior Cleaning</h3>
+              <p class="small">Walkways, building facades, parking lots, and more — scheduled programs available for recurring maintenance.</p>
+              <div style="margin-top:10px;display:flex;gap:8px;align-items:center">
+                <button class="btn btn-primary" onclick="openBooking('Commercial Exterior Cleaning','Custom Pricing')">Get Pricing</button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Accordion with FAQ / details -->
+      <div style="margin-top:20px;max-width:900px">
+        <div class="accordion">
+          <div class="acc-item">
+            <button class="acc-btn" data-target="panel1">How does bin cleaning work?<svg width="18"height="18"viewBox="0 0 24 24"fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="acc-panel" id="panel1">We use a high-pressure hot water system combined with an EPA-rated detergent to clean, sanitize, and deodorize each bin. Drying and deodorizing finish the process.</div>
+          </div>
+          <div class="acc-item">
+            <button class="acc-btn" data-target="panel2">Are your chemicals safe?<svg width="18"height="18"viewBox="0 0 24 24"fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="acc-panel" id="panel2">Yes. We use biodegradable, low-toxicity detergents and avoid harsh chemicals when cleaning sensitive surfaces.</div>
+          </div>
+          <div class="acc-item">
+            <button class="acc-btn" data-target="panel3">Do you remove oil stains?<svg width="18"height="18"viewBox="0 0 24 24"fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="acc-panel" id="panel3">Often, yes. Heavy petroleum stains may require a pre-treatment or grinding; we'll advise after inspection or photos.</div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" style="margin-top:48px">
+      <h3>Gallery — Before & After</h3>
+      <p class="small">Real jobs showing the dramatic difference professional cleaning makes. Click to enlarge.</p>
+
+      <div class="gallery-grid" style="margin-top:14px">
+        <figure class="gallery-card">
+          <img src="/images/gallery-bin-before.jpg" alt="Bin before cleaning {{CITY}}">
+          <figcaption style="padding:10px;font-size:13px;color:var(--muted)">Bin — before</figcaption>
+        </figure>
+        <figure class="gallery-card">
+          <img src="/images/gallery-bin-after.jpg" alt="Bin after cleaning {{CITY}}">
+          <figcaption style="padding:10px;font-size:13px;color:var(--muted)">Bin — after (sanitized)</figcaption>
+        </figure>
+        <figure class="gallery-card">
+          <img src="/images/gallery-driveway-before.jpg" alt="Driveway before cleaning {{CITY}}">
+          <figcaption style="padding:10px;font-size:13px;color:var(--muted)">Driveway — before</figcaption>
+        </figure>
+        <figure class="gallery-card">
+          <img src="/images/gallery-driveway-after.jpg" alt="Driveway after cleaning {{CITY}}">
+          <figcaption style="padding:10px;font-size:13px;color:var(--muted)">Driveway — after (restored)</figcaption>
+        </figure>
+      </div>
+
+      <!-- Lightbox modal (hidden) -->
+      <div id="lightbox" style="display:none;position:fixed;inset:0;background:rgba(2,6,23,0.6);align-items:center;justify-content:center;z-index:2000">
+        <button id="lbClose" style="position:absolute;top:24px;right:24px;background:white;border-radius:999px;padding:8px;border:0;box-shadow:var(--shadow)">✕</button>
+        <img id="lbImg" src="" alt="" style="max-width:92%;max-height:86%;border-radius:10px;box-shadow:var(--shadow)">
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" style="margin-top:48px">
+      <h3>What Customers Say</h3>
+      <div class="testimonials">
+        <div class="test-slider">
+          <div class="testimonial active" id="t1">
+            <p style="font-weight:800">"Fantastic service — my driveway looks brand new!"</p>
+            <p class="small">— Jordan P., {{CITY}}</p>
+          </div>
+          <div class="testimonial" id="t2">
+            <p style="font-weight:800">"Fast, friendly, and the bins no longer smell."</p>
+            <p class="small">— Maria R., {{CITY}}</p>
+          </div>
+          <div style="margin-top:12px;display:flex;gap:8px">
+            <button class="btn btn-ghost" onclick="prevTest()">◀</button>
+            <button class="btn btn-ghost" onclick="nextTest()">▶</button>
+          </div>
+        </div>
+
+        <aside style="background:linear-gradient(180deg,#ffffff,#f3f9f8);padding:16px;border-radius:12px;box-shadow:var(--shadow)">
+          <h4 style="margin:0 0 6px">Why choose LC?</h4>
+          <ul style="margin:0;padding-left:18px;color:var(--muted)">
+            <li>Licensed & insured technicians</li>
+            <li>Eco-friendly cleaning options</li>
+            <li>Transparent pricing & free quotes</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" style="margin-top:48px">
+      <h3>Contact & Booking</h3>
+      <p class="small">Hours: Mon–Sat 9am–6pm · Sun: Closed</p>
+
+      <div class="contact-wrap">
+        <form id="contactForm" onsubmit="return handleContact(event)" aria-label="Contact form">
+          <div class="form-row">
+            <input id="name" name="name" type="text" placeholder="Your name" required />
+            <input id="email" name="email" type="email" placeholder="Email" required />
+          </div>
+          <div style="margin-top:12px">
+            <input id="phone" name="phone" type="tel" placeholder="Phone (optional)" />
+          </div>
+          <div style="margin-top:12px">
+            <select id="serviceSelect" name="service" required>
+              <option value="">Select service...</option>
+              <option>Bin Cleaning — $25 / bin</option>
+              <option>Driveway Power Washing — Free quote</option>
+              <option>Commercial Exterior Cleaning — Custom Pricing</option>
+            </select>
+          </div>
+          <div style="margin-top:12px">
+            <textarea id="message" name="message" placeholder="Tell us about the job / address / preferred date" required></textarea>
+          </div>
+
+          <div style="display:flex;gap:12px;margin-top:12px;align-items:center">
+            <button class="btn btn-primary" type="submit">Send Request</button>
+            <button type="button" class="btn btn-ghost" onclick="openBooking()">Book Online</button>
+            <a class="btn" href="tel:+12393137337">Call: (239) 313-7337</a>
+          </div>
+
+          <div id="contactMsg" class="small" style="margin-top:12px;color:var(--muted)"></div>
+        </form>
+
+        <aside>
+          <div style="background:white;padding:14px;border-radius:12px;box-shadow:var(--shadow)">
+            <div style="font-weight:800">LC Exterior Cleaning</div>
+            <div class="small" style="margin-top:6px">Serving {{CITY}} · Residential & Commercial</div>
+            <div style="margin-top:8px"><strong>Email</strong><div><a href="mailto:lc.lawncarecompany@gmail.com">lc.lawncarecompany@gmail.com</a></div></div>
+            <div style="margin-top:8px"><strong>Phone</strong><div><a href="tel:+12393137337">(239) 313-7337</a></div></div>
+            <div style="margin-top:8px"><strong>Hours</strong><div class="small">Mon–Sat: 9am–6pm · Sun: Closed</div></div>
+          </div>
+
+          <div style="height:12px"></div>
+
+          <div class="map">
+            <iframe title="Service Area Map" width="100%" height="100%" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=YOUR_GOOGLE_MAPS_EMBED_KEY&q={{CITY}}" allowfullscreen></iframe>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container foot-grid">
+        <div>
+          <div style="font-weight:800">LC Exterior Cleaning</div>
+          <div class="small">Power Washing & Bin Cleaning · Serving {{CITY}}</div>
+        </div>
+        <div class="small">© <span id="year"></span> LC Exterior Cleaning · All rights reserved</div>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- Booking Modal (long, detailed form) -->
+  <div id="bookingModal" style="display:none;position:fixed;inset:0;background:rgba(2,6,23,0.6);align-items:center;justify-content:center;z-index:2200">
+    <div style="background:white;border-radius:12px;padding:20px;max-width:760px;width:96%;box-shadow:0 30px 80px rgba(2,6,23,0.3);position:relative">
+      <button id="bookingClose" style="position:absolute;right:14px;top:14px;border:0;background:#fff;padding:8px;border-radius:8px">✕</button>
+      <h3 style="margin-top:0">Book Service / Request Quote</h3>
+      <form id="bookingForm" onsubmit="return handleBooking(event)">
+        <div class="form-row">
+          <input id="bName" required placeholder="Full name">
+          <input id="bPhone" required placeholder="Phone">
+        </div>
+        <div style="margin-top:10px;display:flex;gap:12px">
+          <input id="bEmail" type="email" required placeholder="Email" style="flex:1">
+          <select id="bService" required style="width:260px">
+            <option value="">Select service...</option>
+            <option>Bin Cleaning — $25 / bin</option>
+            <option>Driveway Power Washing — Free quote</option>
+            <option>Commercial Exterior Cleaning — Custom Pricing</option>
+          </select>
+        </div>
+        <div style="margin-top:10px"><textarea id="bMessage" placeholder="Address and details" required></textarea></div>
+        <div style="display:flex;gap:10px;margin-top:12px;align-items:center">
+          <button class="btn btn-primary" type="submit">Submit Booking</button>
+          <button type="button" class="btn btn-ghost" onclick="closeBooking()">Cancel</button>
+        </div>
+        <div id="bookingMsg" class="small" style="margin-top:10px;color:var(--muted)"></div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts: interactions, animations, long JS for functionality & progressive enhancement -->
+  <script>
+    // Set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile menu toggle
+    const mobileToggle = document.getElementById('mobileToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if(mobileToggle){
+      mobileToggle.addEventListener('click', ()=>{
+        const open = mobileMenu.style.display === 'block';
+        mobileMenu.style.display = open ? 'none' : 'block';
+        mobileToggle.setAttribute('aria-expanded', String(!open));
+      });
+    }
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', (e)=>{
+        const href = a.getAttribute('href');
+        if(href.startsWith('#')){
+          e.preventDefault();
+          const el = document.querySelector(href);
+          if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+        }
+      });
+    });
+
+    // Before/After slider logic
+    (function(){
+      const slider = document.getElementById('baSlider');
+      const handle = document.getElementById('baHandle');
+      if(!slider || !handle) return;
+      let dragging=false;
+      function setPos(px){
+        const rect = slider.parentElement.getBoundingClientRect();
+        const clamped = Math.max(0, Math.min(px - rect.left, rect.width));
+        const percent = clamped / rect.width * 100;
+        slider.style.width = percent + '%';
+        handle.style.left = `calc(${percent}% - 18px)`;
+        handle.setAttribute('aria-valuenow', Math.round(percent));
+      }
+      handle.addEventListener('mousedown', ()=>dragging=true);
+      document.addEventListener('mouseup', ()=>dragging=false);
+      document.addEventListener('mousemove', (e)=>{ if(dragging) setPos(e.clientX) });
+      handle.addEventListener('touchstart', ()=>dragging=true);
+      document.addEventListener('touchend', ()=>dragging=false);
+      document.addEventListener('touchmove', (e)=>{ if(dragging) setPos(e.touches[0].clientX) });
+      slider.parentElement.addEventListener('click', (e)=> setPos(e.clientX));
+    })();
+
+    // Accordion behavior
+    document.querySelectorAll('.acc-btn').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const target = btn.getAttribute('data-target');
+        const panel = document.getElementById(target);
+        if(!panel) return;
+        const open = panel.style.display === 'block';
+        // close all
+        document.querySelectorAll('.acc-panel').forEach(p=>p.style.display='none');
+        if(!open) panel.style.display = 'block';
+      });
+    });
+
+    // Gallery lightbox
+    document.querySelectorAll('.gallery-card img').forEach(img=>{
+      img.style.cursor='zoom-in';
+      img.addEventListener('click', ()=>{
+        const lb = document.getElementById('lightbox');
+        const lbImg = document.getElementById('lbImg');
+        lbImg.src = img.src;
+        lbImg.alt = img.alt || 'Gallery image';
+        lb.style.display = 'flex';
+      });
+    });
+    document.getElementById('lbClose').addEventListener('click', ()=>document.getElementById('lightbox').style.display='none');
+    document.getElementById('lightbox').addEventListener('click', (e)=>{ if(e.target.id==='lightbox') document.getElementById('lightbox').style.display='none' });
+
+    // Testimonials slider (basic)
+    let testIndex = 0;
+    const tests = document.querySelectorAll('.testimonial');
+    function showTest(i){ tests.forEach((t,idx)=>t.classList.toggle('active', idx===i)); }
+    function nextTest(){ testIndex = (testIndex+1)%tests.length; showTest(testIndex); }
+    function prevTest(){ testIndex = (testIndex-1+tests.length)%tests.length; showTest(testIndex); }
+    window.nextTest = nextTest; window.prevTest = prevTest;
+
+    // Contact form handler (mailto fallback) - client-side only
+    function handleContact(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const service = document.getElementById('serviceSelect').value;
+      const message = document.getElementById('message').value.trim();
+      if(!name||!email||!service||!message){ showMsg('Please complete required fields.', true); return false }
+      const subject = encodeURIComponent('Website Quote Request — ' + service);
+      const bodyLines = ['Name: '+name,'Email: '+email,'Phone: '+phone,'Service: '+service,'','Message:',message];
+      const body = encodeURIComponent(bodyLines.join('\n'));
+      const mailto = `mailto:lc.lawncarecompany@gmail.com?subject=${subject}&body=${body}`;
+      window.location.href = mailto;
+      showMsg('Opening email client. If nothing happens, email: lc.lawncarecompany@gmail.com', false);
+      return false;
+    }
+    function showMsg(msg, isError){ const el = document.getElementById('contactMsg'); el.textContent=msg; el.style.color = isError? '#b91c1c' : 'var(--muted)'; }
+
+    // Booking modal logic
+    const bookingModal = document.getElementById('bookingModal');
+    const bookingClose = document.getElementById('bookingClose');
+    function openBooking(serviceLabel, price){
+      bookingModal.style.display = 'flex';
+      if(serviceLabel){ document.getElementById('bService').value = serviceLabel + (price? (' — '+price) : ''); }
+    }
+    function closeBooking(){ bookingModal.style.display = 'none'; }
+    bookingClose.addEventListener('click', closeBooking);
+    window.openBooking = openBooking; window.closeBooking = closeBooking;
+
+    function handleBooking(e){
+      e.preventDefault();
+      const name = document.getElementById('bName').value.trim();
+      const phone = document.getElementById('bPhone').value.trim();
+      const email = document.getElementById('bEmail').value.trim();
+      const service = document.getElementById('bService').value;
+      const msg = document.getElementById('bMessage').value.trim();
+      if(!name||!phone||!email||!service||!msg){ document.getElementById('bookingMsg').textContent='Please fill all fields.'; return false; }
+      // For now use mailto; later replace with backend
+      const subject = encodeURIComponent('Booking Request — ' + service);
+      const body = encodeURIComponent(['Name: '+name,'Phone: '+phone,'Email: '+email,'Service: '+service,'Message:',msg].join('\n'));
+      window.location.href = 'mailto:lc.lawncarecompany@gmail.com?subject='+subject+'&body='+body;
+      document.getElementById('bookingMsg').textContent = 'Opening email client to submit your booking.';
+      setTimeout(closeBooking,800);
+      return false;
+    }
+
+    // Fancy entrance animations (only run once)
+    document.querySelectorAll('.pop').forEach((el,i)=>{ el.style.animationDelay = (i*80)+'ms'; el.classList.add('pop'); });
+
+    // Image lazy loading and alt safety
+    document.querySelectorAll('img').forEach(img=>{ img.loading='lazy'; if(!img.alt) img.alt='LC Exterior Cleaning image' });
+
+    // Performance tip logged for developer
+    console.info('Tip: Replace large images with compressed webp versions and configure caching for best performance.');
+
+    // Accessibility: handle ESC to close modals
+    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape'){ closeBooking(); document.getElementById('lightbox').style.display='none'; } });
+
+  </script>
+
+</body>
+</html>
