@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Contact Us | LC Exterior Cleaning Fort Myers</title>
+<meta name="description" content="Contact LC Exterior Cleaning for power washing and bin cleaning services in Fort Myers. Get a free quote today!" />
+<meta name="keywords" content="contact LC Exterior Cleaning, power washing quote, bin cleaning Fort Myers contact" />
+<meta name="author" content="LC Exterior Cleaning" />
+<style>
+  /* RESET & BASE */
+  *, *::before, *::after {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f7fdfa;
+    color: #0b3d2e;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+  a {
+    color: #10775c;
+    text-decoration: none;
+  }
+  a:hover, a:focus {
+    text-decoration: underline;
+  }
+  button {
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  button:focus {
+    outline: 3px solid #10775c;
+  }
+  /* NAVBAR */
+  nav {
+    position: sticky;
+    top: 0;
+    background: #0b3d2e;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 1rem 0;
+    z-index: 9999;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  }
+  nav a {
+    color: #e0f7e9;
+    font-size: 1.1rem;
+    padding: 0.4rem 1rem;
+    border-radius: 6px;
+    transition: background 0.3s ease;
+    position: relative;
+  }
+  nav a::after {
+    content: "";
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #18a162;
+    transition: width 0.3s ease, left 0.3s ease;
+  }
+  nav a:hover::after,
+  nav a.active::after {
+    width: 80%;
+    left: 10%;
+  }
+  nav a:hover,
+  nav a.active {
+    background: #10775c;
+    color: white;
+  }
+  /* CONTAINER */
+  .container {
+    max-width: 720px;
+    margin: 2rem auto 4rem auto;
+    padding: 0 15px;
+  }
+  /* PAGE TITLE */
+  h1.page-title {
+    font-size: 3rem;
+    color: #0b3d2e;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUpFade 1s ease forwards;
+  }
+  /* FORM */
+  form {
+    background: white;
+    border-radius: 15px;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUpFade 1s ease forwards;
+    animation-delay: 0.3s;
+  }
+  label {
+    font-weight: 700;
+    color: #10775c;
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea {
+    padding: 0.8rem 1rem;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    border: 2px solid #ccc;
+    transition: border-color 0.3s ease;
+    resize: vertical;
+  }
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="tel"]:focus,
+  textarea:focus {
+    border-color: #18a162;
+    outline: none;
+  }
+  textarea {
+    min-height: 120px;
+  }
+  .error-message {
+    color: #cc2b2b;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: none;
+  }
+  button[type="submit"] {
+    background: #18a162;
+    color: white;
+    padding: 1.1rem 2.5rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    border-radius: 12px;
+    box-shadow: 0 8px 22px rgba(24,161,98,0.7);
+    align-self: center;
+    transition: background 0.4s ease, box-shadow 0.4s ease;
+  }
+  button[type="submit"]:hover,
+  button[type="submit"]:focus {
+    background: #0f6a42;
+    box-shadow: 0 10px 28px rgba(15,106,66,0.9);
+  }
+  /* CONTACT INFO */
+  .contact-info {
+    margin-top: 3rem;
+    background: white;
+    padding: 2rem 2rem;
+    border-radius: 15px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    color: #10775c;
+    font-size: 1.15rem;
+  }
+  .contact-info h2 {
+    margin-bottom: 1.2rem;
+  }
+  .contact-info p {
+    margin-bottom: 1rem;
+  }
+  .contact-info a {
+    display: inline-block;
+    margin-top: 0.3rem;
+    font-weight: 700;
+  }
+  /* MAP */
+  .map-container {
+    margin-top: 2rem;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  }
+  iframe {
+    width: 100%;
+    height: 320px;
+    border: 0;
+  }
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 1.8rem 1rem;
+    background: #0b3d2e;
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-top: 3rem;
+  }
+  /* ANIMATIONS */
+  @keyframes slideUpFade {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  /* RESPONSIVE */
+  @media (max-width: 480px) {
+    .container {
+      max-width: 90%;
+      margin: 1.5rem auto 3rem auto;
+    }
+  }
+</style>
+</head>
+<body>
+
+<nav aria-label="Primary navigation">
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="contact.html" class="active" aria-current="page">Contact</a>
+</nav>
+
+<main class="container" role="main">
+
+<h1 class="page-title">Get In Touch</h1>
+
+<form id="contactForm" novalidate aria-label="Contact form to request services or quotes">
+  <label for="name">Full Name *</label>
+  <input type="text" id="name" name="name" required aria-required="true" aria-describedby="nameError" placeholder="Your full name" />
+  <div class="error-message" id="nameError">Please enter your name.</div>
+
+  <label for="email">Email Address *</label>
+  <input type="email" id="email" name="email" required aria-required="true" aria-describedby="emailError" placeholder="you@example.com" />
+  <div class="error-message" id="emailError">Please enter a valid email address.</div>
+
+  <label for="phone">Phone Number *</label>
+  <input type="tel" id="phone" name="phone" pattern="^\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$" required aria-required="true" aria-describedby="phoneError" placeholder="239-313-7337" />
+  <div class="error-message" id="phoneError">Please enter a valid 10-digit phone number.</div>
+
+  <label for="message">Message *</label>
+  <textarea id="message" name="message" required aria-required="true" aria-describedby="messageError" placeholder="Describe your request or question"></textarea>
+  <div class="error-message" id="messageError">Please enter your message.</div>
+
+  <button type="submit" aria-label="Submit contact form">Send Message</button>
+</form>
+
+<section class="contact-info" aria-label="Business contact information and hours">
+  <h2>Contact Information</h2>
+  <p>Email: <a href="mailto:lc.lawncarecompany@gmail.com">lc.lawncarecompany@gmail.com</a></p>
+  <p>Phone: <a href="tel:+12393137337">239-313-7337</a></p>
+  <p>Hours: Mon–Sat: 9am–6pm, Sun: Closed</p>
+</section>
+
+<section class="map-container" aria-label="Map showing LC Exterior Cleaning service area in Fort Myers">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.1342755464624!2d-81.880850784993!3d26.64062768315133!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88db3bb7df02ea3b%3A0x41e9df2e9a2149b7!2sFort%20Myers%2C%20FL%2033901!5e0!3m2!1sen!2sus!4v1691671234567!5m2!1sen!2sus"
+    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+    title="Google map of Fort Myers, FL">
+  </iframe>
+</section>
+
+</main>
+
+<footer>
+  &copy; 2025 LC Exterior Cleaning. All rights reserved.
+</footer>
+
+<script>
+  // Highlight active nav link
+  document.querySelectorAll('nav a').forEach(a => {
+    if (a.href === window.location.href || a.href === window.location.href + '/') {
+      a.classList.add('active');
+    }
+  });
+
+  // Form validation
+  const form = document.getElementById('contactForm');
+  const nameInput = form.name;
+  const emailInput = form.email;
+  const phoneInput = form.phone;
+  const messageInput = form.message;
+
+  const nameError = document.getElementById('nameError');
+  const emailError = document.getElementById('emailError');
+  const phoneError = document.getElementById('phoneError');
+  const messageError = document.getElementById('messageError');
+
+  function validateEmail(email) {
+    // Simple email regex
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+  function validatePhone(phone) {
+    // US phone number pattern (xxx-xxx-xxxx)
+    return /^\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$/.test(phone);
+  }
+
+  form.addEventListener('submit', e => {
+    let valid = true;
+
+    if (!nameInput.value.trim()) {
+      nameError.style.display = 'block';
+      valid = false;
+    } else {
+      nameError.style.display = 'none';
+    }
+
+    if (!validateEmail(emailInput.value.trim())) {
+      emailError.style.display = 'block';
+      valid = false;
+    } else {
+      emailError.style.display = 'none';
+    }
+
+    if (!validatePhone(phoneInput.value.trim())) {
+      phoneError.style.display = 'block';
+      valid = false;
+    } else {
+      phoneError.style.display = 'none';
+    }
+
+    if (!messageInput.value.trim()) {
+      messageError.style.display = 'block';
+      valid = false;
+    } else {
+      messageError.style.display = 'none';
+    }
+
+    if (!valid) {
+      e.preventDefault();
+      window.scrollTo({top: form.offsetTop - 20, behavior: 'smooth'});
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Services | LC Exterior Cleaning Fort Myers</title>
+<meta name="description" content="Explore bin cleaning and driveway power washing services in Fort Myers by LC Exterior Cleaning. Competitive pricing, reliable service." />
+<meta name="keywords" content="bin cleaning Fort Myers, driveway power washing Fort Myers, exterior cleaning services" />
+<meta name="author" content="LC Exterior Cleaning" />
+<style>
+  /* ========== RESET & BASE ========== */
+  *, *::before, *::after {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f7fdfa;
+    color: #0b3d2e;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+  a {
+    color: #10775c;
+    text-decoration: none;
+  }
+  a:hover, a:focus {
+    text-decoration: underline;
+  }
+  button {
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  button:focus {
+    outline: 3px solid #10775c;
+  }
+  /* ========== NAVBAR ========== */
+  nav {
+    position: sticky;
+    top: 0;
+    background: #0b3d2e;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 1rem 0;
+    z-index: 9999;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  }
+  nav a {
+    color: #e0f7e9;
+    font-size: 1.1rem;
+    padding: 0.4rem 1rem;
+    border-radius: 6px;
+    transition: background 0.3s ease;
+    position: relative;
+  }
+  nav a::after {
+    content: "";
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #18a162;
+    transition: width 0.3s ease, left 0.3s ease;
+  }
+  nav a:hover::after,
+  nav a.active::after {
+    width: 80%;
+    left: 10%;
+  }
+  nav a:hover,
+  nav a.active {
+    background: #10775c;
+    color: white;
+  }
+  /* ========== CONTAINER ========== */
+  .container {
+    max-width: 1140px;
+    margin: 2rem auto 4rem auto;
+    padding: 0 15px;
+  }
+  /* ========== PAGE TITLE ========== */
+  h1.page-title {
+    font-size: 3rem;
+    color: #0b3d2e;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUpFade 1s ease forwards;
+  }
+  /* ========== SERVICES LIST ========== */
+  .services-list {
+    display: grid;
+    gap: 2.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUpFade 1s ease forwards;
+    animation-delay: 0.5s;
+  }
+  .service-item {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    padding: 2rem 1.8rem;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    will-change: transform;
+  }
+  .service-item:hover, .service-item:focus-within {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.22);
+    cursor: pointer;
+  }
+  .service-item img {
+    border-radius: 12px;
+    max-height: 210px;
+    object-fit: cover;
+    margin-bottom: 1.4rem;
+    filter: drop-shadow(0 1px 1px rgba(0,0,0,0.1));
+    transition: filter 0.3s ease;
+  }
+  .service-item:hover img {
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.18));
+  }
+  .service-item h2 {
+    font-size: 2rem;
+    color: #10775c;
+    margin-bottom: 1rem;
+  }
+  .service-item p {
+    flex-grow: 1;
+    color: #444;
+    font-size: 1.12rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+  }
+  .service-item .price {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #18a162;
+    margin-bottom: 2rem;
+  }
+  .service-item button {
+    background: #0b3d2e;
+    color: white;
+    padding: 1rem 2.5rem;
+    font-weight: 700;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    box-shadow: 0 6px 16px rgba(11,61,46,0.6);
+    transition: background 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
+  }
+  .service-item button:hover,
+  .service-item button:focus {
+    background: #10775c;
+    box-shadow: 0 10px 28px rgba(16,119,92,0.9);
+    transform: scale(1.05);
+  }
+  /* ========== FOOTER ========== */
+  footer {
+    text-align: center;
+    padding: 1.8rem 1rem;
+    background: #0b3d2e;
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-top: 3rem;
+  }
+  /* ========== ANIMATIONS ========== */
+  @keyframes slideUpFade {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 700px) {
+    h1.page-title {
+      font-size: 2.2rem;
+    }
+    .services-list {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+
+<nav aria-label="Primary navigation">
+  <a href="index.html">Home</a>
+  <a href="services.html" class="active" aria-current="page">Services</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<main class="container" role="main">
+
+<h1 class="page-title">Our Exterior Cleaning Services</h1>
+
+<div class="services-list" aria-live="polite">
+
+  <article class="service-item" tabindex="0" aria-label="Bin Cleaning Service details">
+    <img src="https://images.unsplash.com/photo-1590080877777-cf0e8b35e1a7?auto=format&fit=crop&w=700&q=60" alt="Sanitized clean trash bin after cleaning" />
+    <h2>Bin Cleaning</h2>
+    <p>Our bin cleaning service sanitizes, deodorizes, and thoroughly cleans your trash bins, leaving them spotless and odor-free. Perfect for residential or commercial properties wanting fresh and hygienic bins.</p>
+    <p class="price">$25 per bin</p>
+    <button onclick="location.href='contact.html'">Request a Quote</button>
+  </article>
+
+  <article class="service-item" tabindex="0" aria-label="Driveway Power Washing Service details">
+    <img src="https://images.unsplash.com/photo-1598377613588-96b168c78d9d?auto=format&fit=crop&w=700&q=60" alt="Driveway power washing before and after" />
+    <h2>Driveway Power Washing</h2>
+    <p>We provide high-pressure driveway power washing to remove dirt, oil stains, algae, and grime. Prices depend on driveway size and condition. Contact us for a free, no-obligation quote tailored to your property.</p>
+    <p class="price">Free quotes available</p>
+    <button onclick="location.href='contact.html'">Book Now</button>
+  </article>
+
+</div>
+
+</main>
+
+<footer>
+  &copy; 2025 LC Exterior Cleaning. All rights reserved.
+</footer>
+
+<script>
+  // Highlight active nav link
+  document.querySelectorAll('nav a').forEach(a => {
+    if (a.href === window.location.href || a.href === window.location.href + '/') {
+      a.classList.add('active');
+    }
+  });
+</script>
+
+</body>
+</html>
