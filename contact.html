@@ -83,15 +83,14 @@
     margin: 2rem auto 4rem auto;
     padding: 0 15px;
   }
-  /* PAGE TITLE */
+  /* PAGE TITLE - fixed visible, no animation */
   h1.page-title {
     font-size: 3rem;
     color: #0b3d2e;
     text-align: center;
     margin-bottom: 2.5rem;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: slideUpFade 1s ease forwards;
+    opacity: 1;
+    transform: translateY(0);
   }
   /* FORM */
   form {
@@ -110,11 +109,15 @@
   label {
     font-weight: 700;
     color: #10775c;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.1rem;
   }
   input[type="text"],
   input[type="email"],
   input[type="tel"],
   textarea {
+    margin-top: 0.3rem;
     padding: 0.8rem 1rem;
     font-size: 1.1rem;
     border-radius: 8px;
@@ -226,21 +229,35 @@
 
 <h1 class="page-title">Get In Touch</h1>
 
-<form id="contactForm" novalidate aria-label="Contact form to request services or quotes">
-  <label for="name">Full Name *</label>
-  <input type="text" id="name" name="name" required aria-required="true" aria-describedby="nameError" placeholder="Your full name" />
+<form
+  id="contactForm"
+  action="https://formspree.io/f/xblkqpyk"
+  method="POST"
+  novalidate
+  aria-label="Contact form to request services or quotes"
+>
+  <label for="name">
+    Full Name *
+    <input type="text" id="name" name="name" required aria-required="true" aria-describedby="nameError" placeholder="Your full name" />
+  </label>
   <div class="error-message" id="nameError">Please enter your name.</div>
 
-  <label for="email">Email Address *</label>
-  <input type="email" id="email" name="email" required aria-required="true" aria-describedby="emailError" placeholder="you@example.com" />
+  <label for="email">
+    Email Address *
+    <input type="email" id="email" name="email" required aria-required="true" aria-describedby="emailError" placeholder="you@example.com" />
+  </label>
   <div class="error-message" id="emailError">Please enter a valid email address.</div>
 
-  <label for="phone">Phone Number *</label>
-  <input type="tel" id="phone" name="phone" pattern="^\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$" required aria-required="true" aria-describedby="phoneError" placeholder="239-313-7337" />
+  <label for="phone">
+    Phone Number *
+    <input type="tel" id="phone" name="phone" pattern="^\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$" required aria-required="true" aria-describedby="phoneError" placeholder="239-313-7337" />
+  </label>
   <div class="error-message" id="phoneError">Please enter a valid 10-digit phone number.</div>
 
-  <label for="message">Message *</label>
-  <textarea id="message" name="message" required aria-required="true" aria-describedby="messageError" placeholder="Describe your request or question"></textarea>
+  <label for="message">
+    Message *
+    <textarea id="message" name="message" required aria-required="true" aria-describedby="messageError" placeholder="Describe your request or question"></textarea>
+  </label>
   <div class="error-message" id="messageError">Please enter your message.</div>
 
   <button type="submit" aria-label="Submit contact form">Send Message</button>
@@ -257,8 +274,8 @@
   <iframe
     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.1342755464624!2d-81.880850784993!3d26.64062768315133!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88db3bb7df02ea3b%3A0x41e9df2e9a2149b7!2sFort%20Myers%2C%20FL%2033901!5e0!3m2!1sen!2sus!4v1691671234567!5m2!1sen!2sus"
     allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-    title="Google map of Fort Myers, FL">
-  </iframe>
+    title="Google map of Fort Myers, FL"
+  ></iframe>
 </section>
 
 </main>
@@ -288,11 +305,9 @@
   const messageError = document.getElementById('messageError');
 
   function validateEmail(email) {
-    // Simple email regex
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   }
   function validatePhone(phone) {
-    // US phone number pattern (xxx-xxx-xxxx)
     return /^\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$/.test(phone);
   }
 
