@@ -1,43 +1,346 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-        }
-        h1 {
-            padding: 20px;
-            background-color: #333;
-            color: white;
-            margin: 0;
-        }
-        .gallery {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            padding: 20px;
-            flex-wrap: wrap;
-        }
-        .gallery img {
-            max-width: 500px;
-            width: 100%;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Gallery | LC Exterior Cleaning Fort Myers</title>
+<meta name="description" content="Before and after gallery of exterior cleaning work including bin cleaning and driveway power washing in Fort Myers." />
+<meta name="keywords" content="exterior cleaning gallery Fort Myers, bin cleaning before after, driveway power washing before after" />
+<meta name="author" content="LC Exterior Cleaning" />
+
+<style>
+  /* Reset */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f7fdfa;
+    color: #0b3d2e;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  nav {
+    position: sticky;
+    top: 0;
+    background: #0b3d2e;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    z-index: 9999;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  }
+  .nav-links {
+    display: flex;
+    gap: 30px;
+  }
+  .nav-links a {
+    color: #e0f7e9;
+    font-size: 1.1rem;
+    padding: 0.4rem 1rem;
+    border-radius: 6px;
+    transition: background 0.3s ease;
+    position: relative;
+    text-decoration: none;
+  }
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #18a162;
+    transition: width 0.3s ease, left 0.3s ease;
+  }
+  .nav-links a:hover::after,
+  .nav-links a.active::after {
+    width: 80%;
+    left: 10%;
+  }
+  .nav-links a:hover,
+  .nav-links a.active {
+    background: #10775c;
+    color: white;
+  }
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+  }
+  .hamburger div {
+    width: 25px;
+    height: 3px;
+    background: #e0f7e9;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+  }
+  @media (max-width: 768px) {
+    .nav-links {
+      position: fixed;
+      top: 60px;
+      right: -100%;
+      background: #0b3d2e;
+      height: 100vh;
+      width: 200px;
+      flex-direction: column;
+      padding-top: 2rem;
+      gap: 1.5rem;
+      transition: right 0.3s ease;
+      box-shadow: -2px 0 8px rgba(0,0,0,0.4);
+    }
+    .nav-links.open {
+      right: 0;
+    }
+    .hamburger {
+      display: flex;
+    }
+  }
+
+  main {
+    max-width: 900px;
+    margin: 3rem auto 5rem auto;
+    padding: 0 1rem;
+  }
+  h1.page-title {
+    font-size: 3rem;
+    color: #0b3d2e;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    user-select: none;
+  }
+
+  /* Slider container */
+  .slider {
+    position: relative;
+    overflow: hidden;
+    border-radius: 18px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+    background: white;
+  }
+
+  /* Slides wrapper */
+  .slides {
+    display: flex;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+  }
+
+  /* Each slide */
+  .slide {
+    min-width: 100%;
+    user-select: none;
+    position: relative;
+  }
+
+  /* Images */
+  .slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 18px;
+    object-fit: cover;
+  }
+
+  /* Captions */
+  .caption {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    padding: 8px 14px;
+    background: rgba(11, 61, 46, 0.8);
+    color: #e0f7e9;
+    font-weight: 700;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    user-select: none;
+  }
+
+  /* Nav arrows */
+  .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(11, 61, 46, 0.8);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+    user-select: none;
+    z-index: 10;
+  }
+  .arrow:hover {
+    background: #18a162;
+  }
+  .arrow:focus {
+    outline: 2px solid #18a162;
+  }
+  .arrow-left {
+    left: 15px;
+  }
+  .arrow-right {
+    right: 15px;
+  }
+
+  /* Dots navigation */
+  .dots {
+    text-align: center;
+    margin-top: 18px;
+  }
+  .dot {
+    height: 14px;
+    width: 14px;
+    margin: 0 6px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .dot.active, .dot:hover {
+    background-color: #18a162;
+  }
+
+  /* Responsive */
+  @media (max-width: 480px) {
+    h1.page-title {
+      font-size: 2rem;
+    }
+    .arrow {
+      font-size: 1.5rem;
+      padding: 7px 10px;
+    }
+  }
+</style>
 </head>
 <body>
-    <h1>Bins Before & After</h1>
-    <div class="gallery">
-        <img src="https://i.ibb.co/v6LjXCC/bins-before.jpg" alt="Bins Before">
-        <img src="https://i.ibb.co/DPR1pcx/bins-after.jpg" alt="Bins After">
+
+<nav aria-label="Primary navigation">
+  <div class="logo" style="color:#e0f7e9; font-weight:700; font-size:1.4rem;">LC Exterior Cleaning</div>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="gallery.html" class="active" aria-current="page">Gallery</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" role="button" tabindex="0">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</nav>
+
+<main role="main" aria-label="Before and After Gallery">
+  <h1 class="page-title">Before & After Bin Cleaning</h1>
+
+  <div class="slider" aria-roledescription="carousel" aria-label="Before and after images of bin cleaning">
+    <button class="arrow arrow-left" aria-label="Previous slide">&#10094;</button>
+    <div class="slides">
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="Before cleaning">
+        <img src="https://image2url.com/images/1754918597624-25c65ce4-60f3-49e0-a29b-740151c38e63.webp" alt="Bins Before Cleaning" />
+        <div class="caption">Before Cleaning</div>
+      </div>
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="After cleaning">
+        <img src="https://image2url.com/images/1754918617261-c422dc73-0d88-4145-9cb2-0161fb2ab149.webp" alt="Bins After Cleaning" />
+        <div class="caption">After Cleaning</div>
+      </div>
     </div>
+    <button class="arrow arrow-right" aria-label="Next slide">&#10095;</button>
+  </div>
+
+  <div class="dots" role="tablist" aria-label="Slide navigation">
+    <button class="dot active" role="tab" aria-selected="true" aria-controls="slide1" id="dot1" tabindex="0"></button>
+    <button class="dot" role="tab" aria-selected="false" aria-controls="slide2" id="dot2" tabindex="-1"></button>
+  </div>
+</main>
+
+<footer>
+  &copy; 2025 LC Exterior Cleaning. All rights reserved.
+</footer>
+
+<script>
+  // Hamburger toggle
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+
+  hamburger.addEventListener('click', () => {
+    const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
+    hamburger.setAttribute('aria-expanded', !expanded);
+    navLinks.classList.toggle('open');
+  });
+
+  hamburger.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      hamburger.click();
+    }
+  });
+
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', false);
+    });
+  });
+
+  // Slider script
+  const slides = document.querySelector('.slides');
+  const slideCount = document.querySelectorAll('.slide').length;
+  const prevBtn = document.querySelector('.arrow-left');
+  const nextBtn = document.querySelector('.arrow-right');
+  const dots = document.querySelectorAll('.dot');
+  let currentIndex = 0;
+
+  function goToSlide(index) {
+    if (index < 0) index = slideCount - 1;
+    if (index >= slideCount) index = 0;
+    slides.style.transform = `translateX(-${index * 100}%)`;
+    currentIndex = index;
+    updateDots();
+  }
+
+  function updateDots() {
+    dots.forEach((dot, idx) => {
+      dot.classList.toggle('active', idx === currentIndex);
+      dot.setAttribute('aria-selected', idx === currentIndex);
+      dot.tabIndex = idx === currentIndex ? 0 : -1;
+    });
+  }
+
+  prevBtn.addEventListener('click', () => {
+    goToSlide(currentIndex - 1);
+  });
+  nextBtn.addEventListener('click', () => {
+    goToSlide(currentIndex + 1);
+  });
+
+  dots.forEach((dot, idx) => {
+    dot.addEventListener('click', () => {
+      goToSlide(idx);
+    });
+  });
+
+  // Keyboard nav (left/right arrows)
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') {
+      goToSlide(currentIndex - 1);
+    } else if (e.key === 'ArrowRight') {
+      goToSlide(currentIndex + 1);
+    }
+  });
+
+  // Initialize slider
+  goToSlide(0);
+</script>
+
 </body>
 </html>
