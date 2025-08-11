@@ -1,295 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Gallery | LC Exterior Cleaning — Fort Myers, FL</title>
-<meta name="description" content="Before & after gallery for LC Exterior Cleaning — bin cleaning and driveway power washing in Fort Myers, FL. View high-quality, mobile-optimized photos." />
-<meta name="keywords" content="bin cleaning before after, driveway power washing before after, exterior cleaning Fort Myers" />
-<meta name="author" content="LC Exterior Cleaning" />
-<link rel="icon" href="data:;base64,iVBORw0KGgo=">
-
-<style>
-  /* ---------- Reset & Base ---------- */
-  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-  html,body{height:100%}
-  body{
-    font-family: "Segoe UI", Roboto, system-ui, -apple-system, "Helvetica Neue", Arial;
-    background:#f7fdfa;color:#06261d;line-height:1.5;
-    -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
-  }
-  a{color:inherit}
-  img{display:block;max-width:100%}
-
-  /* ---------- Header / Nav (sticky) ---------- */
-  header{
-    position:sticky;top:0;z-index:1200;background:#0b3d2e;color:#e6fbf0;
-    box-shadow:0 3px 10px rgba(2,6,23,0.12), inset 0 -1px 0 rgba(255,255,255,0.02);
-  }
-  .nav-inner{max-width:1140px;margin:0 auto;padding:12px 18px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-  .brand{display:flex;align-items:center;gap:12px}
-  .brand .logo{
-    width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,#0369a1,#0f766e);
-    display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:18px;box-shadow:0 6px 18px rgba(3,105,161,0.12)
-  }
-  .brand .title{font-weight:800;font-size:16px}
-  .nav-links{display:flex;gap:14px;align-items:center}
-  .nav-links a{
-    color:#e6fbf0;padding:8px 12px;border-radius:8px;font-weight:700;text-decoration:none;transition:background .18s ease,transform .18s ease;
-  }
-  .nav-links a:hover,.nav-links a.active{background:#10775c;color:#fff; transform:translateY(-1px)}
-  .hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer}
-  .hamburger span{width:22px;height:3px;background:#e6fbf0;border-radius:3px;display:block}
-
-  @media(max-width:900px){
-    .nav-links{position:fixed;right:-100%;top:64px;background:#0b3d2e;height:calc(100vh - 64px);width:240px;flex-direction:column;padding:18px;transition:right .28s ease;box-shadow:-6px 0 30px rgba(2,6,23,0.2)}
-    .nav-links.open{right:0}
-    .hamburger{display:flex}
-  }
-
-  /* ---------- Page container & title ---------- */
-  main{max-width:1140px;margin:28px auto;padding:0 18px}
-  .page-heading{display:flex;flex-direction:column;gap:10px;margin-bottom:22px;align-items:center}
-  .page-heading h1{font-size:2.4rem;color:#04302a;margin:0;font-weight:800}
-  .page-heading p{color:#2f5b4d;max-width:920px;text-align:center}
-
-  /* ---------- Gallery grid ---------- */
-  .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-  .card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 10px 30px rgba(2,6,23,0.06);position:relative;cursor:pointer;transition:transform .35s cubic-bezier(.2,.9,.3,1),box-shadow .35s ease}
-  .card:focus-within,.card:hover{transform:translateY(-8px);box-shadow:0 20px 46px rgba(2,6,23,0.12)}
-  .card .media{height:220px;background:#f0f7f4;display:flex;align-items:center;justify-content:center;overflow:hidden}
-  .card img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
-  .card:hover img{transform:scale(1.06)}
-  .caption{padding:14px 16px;font-weight:700;color:#06312a}
-  .sub{font-weight:600;color:#406657;font-size:0.95rem;margin-top:6px}
-
-  /* ---------- Before/After pair (special row) ---------- */
-  .pair{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-  .pair .card .media{height:360px}
-
-  /* ---------- Lightbox modal (accessible) ---------- */
-  .lb-backdrop{display:none;position:fixed;inset:0;background:rgba(2,6,23,0.88);z-index:2000;align-items:center;justify-content:center;padding:20px}
-  .lb-backdrop.open{display:flex}
-  .lb-inner{max-width:1200px;width:100%;max-height:92vh;display:flex;flex-direction:column;gap:12px;align-items:center}
-  .lb-img{max-width:100%;max-height:80vh;border-radius:10px;box-shadow:0 20px 60px rgba(2,6,23,0.6)}
-  .lb-caption{color:#e6fbf0;background:linear-gradient(90deg,#0369a1,#0f766e);padding:10px 14px;border-radius:8px;font-weight:800}
-  .lb-close{position:absolute;right:18px;top:18px;background:transparent;color:#fff;border-radius:8px;font-size:28px;border:0;cursor:pointer}
-  .lb-controls{display:flex;gap:10px;align-items:center}
-
-  /* ---------- Utilities & responsiveness ---------- */
-  .controls{display:flex;gap:10px;align-items:center;justify-content:center;margin-top:10px}
-  .btn{background:#18a162;color:#fff;padding:10px 14px;border-radius:10px;border:0;font-weight:800;cursor:pointer}
-  .muted{color:#6c7b74;font-weight:600}
-  @media(max-width:980px){.gallery-grid{grid-template-columns:repeat(2,1fr)}.pair{grid-template-columns:1fr}}
-  @media(max-width:620px){.gallery-grid{grid-template-columns:1fr}.card .media{height:220px}.pair .card .media{height:260px}}
-
-  /* ---------- Small accessible focus ring ---------- */
-  :focus{outline:4px solid rgba(16,119,92,0.15);outline-offset:3px}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            margin: 0;
+        }
+        .gallery {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+        .gallery img {
+            max-width: 500px;
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+    </style>
 </head>
 <body>
-
-<header>
-  <div class="nav-inner">
-    <div class="brand">
-      <div class="logo" aria-hidden="true">LC</div>
-      <div>
-        <div class="title">LC Exterior Cleaning</div>
-        <div style="color:#bfeadd;font-size:12px">Power Washing · Bin Cleaning · Fort Myers</div>
-      </div>
+    <h1>Bins Before & After</h1>
+    <div class="gallery">
+        <img src="https://i.ibb.co/v6LjXCC/bins-before.jpg" alt="Bins Before">
+        <img src="https://i.ibb.co/DPR1pcx/bins-after.jpg" alt="Bins After">
     </div>
-
-    <nav aria-label="Main navigation">
-      <div class="nav-links" id="navLinks">
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="gallery.html" class="active" aria-current="page">Gallery</a>
-        <a href="contact.html">Contact</a>
-      </div>
-    </nav>
-
-    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</header>
-
-<main>
-  <section class="page-heading" aria-labelledby="gallery-heading">
-    <h1 id="gallery-heading">Before &amp; After Gallery</h1>
-    <p>Real jobs from Fort Myers — clean vs. dirty comparisons showing bin cleaning and driveway power washing results. Tap any image to view full-size.</p>
-  </section>
-
-  <!-- Gallery grid -->
-  <section class="gallery-grid" role="list" aria-label="Gallery images">
-
-    <!-- Pair: Bins before & after (prominent) -->
-    <div class="pair" role="group" aria-label="Bin cleaning before and after">
-      <article class="card" role="listitem" tabindex="0" data-src="https://i.ibb.co/v6LjXCCW/bins-before.jpg" data-title="Bin — Before Cleaning" data-desc="Dirty household bin before professional cleaning">
-        <div class="media" aria-hidden="true">
-          <img src="https://i.ibb.co/v6LjXCCW/bins-before.jpg" alt="Bin before cleaning" loading="lazy" decoding="async" />
-        </div>
-        <div class="caption">Bin — Before Cleaning<div class="sub">Dirty garbage bin prior to cleaning</div></div>
-      </article>
-
-      <article class="card" role="listitem" tabindex="0" data-src="https://i.ibb.co/DPR1pcxw/bins-after.jpg" data-title="Bin — After Cleaning" data-desc="Sanitized, deodorized and spotless bin after cleaning">
-        <div class="media">
-          <img src="https://i.ibb.co/DPR1pcxw/bins-after.jpg" alt="Bin after cleaning" loading="lazy" decoding="async" />
-        </div>
-        <div class="caption">Bin — After Cleaning<div class="sub">Sanitized & deodorized — professionalism you can see</div></div>
-      </article>
-    </div>
-
-    <!-- Driveway examples (placeholders you can replace) -->
-    <article class="card" role="listitem" tabindex="0" data-src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80" data-title="Driveway — Before" data-desc="Algae and oil-stained driveway before power washing">
-      <div class="media"><img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=900&q=60" alt="Driveway before cleaning" loading="lazy" decoding="async" /></div>
-      <div class="caption">Driveway — Before<div class="sub">Oil & algae build-up</div></div>
-    </article>
-
-    <article class="card" role="listitem" tabindex="0" data-src="https://images.unsplash.com/photo-1598377613588-96b168c78d9d?auto=format&fit=crop&w=1200&q=80" data-title="Driveway — After" data-desc="Restored driveway surface after pressure washing">
-      <div class="media"><img src="https://images.unsplash.com/photo-1598377613588-96b168c78d9d?auto=format&fit=crop&w=900&q=60" alt="Driveway after cleaning" loading="lazy" decoding="async" /></div>
-      <div class="caption">Driveway — After<div class="sub">Surface restored and brightened</div></div>
-    </article>
-
-    <!-- Additional gallery items to match length and pro look -->
-    <article class="card" role="listitem" tabindex="0" data-src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1200&q=80" data-title="Walkway — Before" data-desc="Walkway with moss and dirt before cleaning">
-      <div class="media"><img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=900&q=60" alt="Walkway before cleaning" loading="lazy" decoding="async" /></div>
-      <div class="caption">Walkway — Before<div class="sub">Moss & grime build-up</div></div>
-    </article>
-
-    <article class="card" role="listitem" tabindex="0" data-src="https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=1200&q=80" data-title="Walkway — After" data-desc="Clean walkway after professional power washing">
-      <div class="media"><img src="https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=900&q=60" alt="Walkway after cleaning" loading="lazy" decoding="async" /></div>
-      <div class="caption">Walkway — After<div class="sub">Cleaner, safer, and slip-resistant</div></div>
-    </article>
-
-    <!-- filler examples to provide a fuller gallery (replace with your own) -->
-    <article class="card" role="listitem" tabindex="0" data-src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=80" data-title="Commercial Lot — After" data-desc="Parking lot cleaned and refreshed">
-      <div class="media"><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=60" alt="Commercial lot after cleaning" loading="lazy" decoding="async" /></div>
-      <div class="caption">Commercial Lot — After<div class="sub">Scheduled maintenance for businesses</div></div>
-    </article>
-
-    <article class="card" role="listitem" tabindex="0" data-src="https://images.unsplash.com/photo-1505691723518-36a8f6f4b6c6?auto=format&fit=crop&w=1200&q=80" data-title="Facade Cleaning" data-desc="Exterior wall cleaning for curb appeal">
-      <div class="media"><img src="https://images.unsplash.com/photo-1505691723518-36a8f6f4b6c6?auto=format&fit=crop&w=900&q=60" alt="Facade cleaning" loading="lazy" decoding="async" /></div>
-      <div class="caption">Facade Cleaning<div class="sub">Improves appearance & longevity</div></div>
-    </article>
-
-  </section>
-
-  <!-- helpful controls & caption area -->
-  <div style="max-width:1140px;margin:18px auto;display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap">
-    <button class="btn" id="open-first">View Full Gallery</button>
-    <div class="muted">Tip: Tap or click any photo to enlarge. Use ← → keys to move between images.</div>
-  </div>
-</main>
-
-<!-- Lightbox markup -->
-<div class="lb-backdrop" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Image preview dialog">
-  <button class="lb-close" id="lbClose" aria-label="Close preview">&times;</button>
-  <div class="lb-inner" role="document">
-    <img src="" alt="" class="lb-img" id="lbImg" />
-    <div class="lb-caption" id="lbCaption">Caption</div>
-    <div class="lb-controls">
-      <button class="btn" id="prevBtn" aria-label="Previous image">◀ Prev</button>
-      <button class="btn" id="nextBtn" aria-label="Next image">Next ▶</button>
-    </div>
-  </div>
-</div>
-
-<footer style="margin-top:32px;padding:26px 18px;background:#0b3d2e;color:#e6fbf0;text-align:center;font-weight:700">
-  LC Exterior Cleaning — Fort Myers, FL · Email: <a href="mailto:lc.lawncarecompany@gmail.com" style="color:#bff0d9">lc.lawncarecompany@gmail.com</a> · Phone: <a href="tel:+12393137337" style="color:#bff0d9">1-239-313-7337</a>
-  <div style="font-weight:600;margin-top:8px">© <span id="yr"></span> LC Exterior Cleaning — All rights reserved</div>
-</footer>
-
-<script>
-  // set year
-  document.getElementById('yr').textContent = new Date().getFullYear();
-
-  // Hamburger toggle (shared behavior)
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('navLinks');
-  if(hamburger){
-    hamburger.addEventListener('click', () => {
-      const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
-      hamburger.setAttribute('aria-expanded', !expanded);
-      navLinks.classList.toggle('open');
-    });
-    // keyboard
-    hamburger.addEventListener('keydown', e => {
-      if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); hamburger.click(); }
-    });
-    // close on link click
-    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', ()=>{ navLinks.classList.remove('open'); hamburger.setAttribute('aria-expanded', false); }));
-  }
-
-  // Lightbox logic
-  const lightbox = document.getElementById('lightbox');
-  const lbImg = document.getElementById('lbImg');
-  const lbCaption = document.getElementById('lbCaption');
-  const lbClose = document.getElementById('lbClose');
-  const prevBtn = document.getElementById('prevBtn');
-  const nextBtn = document.getElementById('nextBtn');
-  const cards = Array.from(document.querySelectorAll('.card'));
-  let currentIndex = -1;
-
-  function openLightbox(index){
-    const card = cards[index];
-    if(!card) return;
-    const src = card.getAttribute('data-src') || card.querySelector('img').src;
-    const title = card.getAttribute('data-title') || card.querySelector('.caption')?.innerText || '';
-    const desc = card.getAttribute('data-desc') || '';
-    lbImg.src = src;
-    lbImg.alt = title || desc || 'Gallery image';
-    lbCaption.textContent = title + (desc ? ' — ' + desc : '');
-    lightbox.classList.add('open');
-    lightbox.setAttribute('aria-hidden', 'false');
-    currentIndex = index;
-    // trap focus on close button
-    lbClose.focus();
-  }
-
-  function closeLightbox(){
-    lightbox.classList.remove('open');
-    lightbox.setAttribute('aria-hidden', 'true');
-    lbImg.src = '';
-    currentIndex = -1;
-  }
-
-  function showPrev(){ if(currentIndex > 0){ openLightbox(currentIndex - 1); } else { openLightbox(cards.length - 1); } }
-  function showNext(){ if(currentIndex < cards.length - 1){ openLightbox(currentIndex + 1); } else { openLightbox(0); } }
-
-  // click handlers on cards
-  cards.forEach((c, i) => {
-    c.addEventListener('click', ()=> openLightbox(i));
-    c.addEventListener('keydown', (e) => { if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(i); } });
-  });
-
-  // controls
-  lbClose.addEventListener('click', closeLightbox);
-  prevBtn.addEventListener('click', showPrev);
-  nextBtn.addEventListener('click', showNext);
-
-  // keyboard navigation
-  document.addEventListener('keydown', (e) => {
-    if(lightbox.classList.contains('open')){
-      if(e.key === 'Escape') closeLightbox();
-      if(e.key === 'ArrowLeft') showPrev();
-      if(e.key === 'ArrowRight') showNext();
-    }
-  });
-
-  // close when clicking backdrop (but not inner)
-  lightbox.addEventListener('click', (e) => {
-    if(e.target === lightbox) closeLightbox();
-  });
-
-  // "View Full Gallery" button opens first item
-  const openFirst = document.getElementById('open-first');
-  if(openFirst) openFirst.addEventListener('click', ()=> openLightbox(0));
-
-  // Accessibility: ensure images are lazy but optional high-quality load
-  // images already have loading="lazy" where possible (but we also support browser fallback)
-
-  // Performance tip: consider replacing the large unsplash placeholder URLs with your own optimized webp files inside /images/
-</script>
 </body>
 </html>
